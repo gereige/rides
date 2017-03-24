@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from rides import get_uber_pickup, get_uber_cost, get_lyft_pickup, get_lyft_cost
+import rides 
 import os
 from geopy.geocoders import Nominatim 
 from uber_rides.session import Session
@@ -14,12 +14,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    origin = locate("Times square, New York")
-    destination = locate("Columbia University, New York")
-    uber_eta = get_uber_pickup(origin)
-    lyft_eta = get_lyft_pickup(origin)
-    uber_cost = get_uber_cost(origin, destination)
-    lyft_cost = get_lyft_cost(origin, destination)
+    origin = rides.locate("Times square, New York")
+    destination = rides.locate("Columbia University, New York")
+    uber_eta = rides.get_uber_pickup(origin)
+    lyft_eta = rides.get_lyft_pickup(origin)
+    uber_cost = rides.get_uber_cost(rides.origin, destination)
+    lyft_cost = rides.get_lyft_cost(origin, destination)
     uber_results = {'uberPOOL':'', 'uberX':'','uberXL':'','SUV':'','uberBLACK':''}
     lyft_results = {'Lyft':'','Lyft Line':'','Lyft Plus':''}
     for time in uber_eta:
