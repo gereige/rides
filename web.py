@@ -31,8 +31,6 @@ def get_uber_pickup(origin):
     start_longitude= start_lon)
     return response.json.get('times')
 
-
-
 def get_uber_cost(origin, destination):
     start_lat = origin[0]
     start_lon = origin[1]
