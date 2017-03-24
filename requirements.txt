@@ -4,4 +4,3 @@ geopy==1.11.0
 lyft-rides==0.1.0b0
 dotenv==0.0.5
 uber-rides==0.4.1
-python-dotenv==0.6.3
