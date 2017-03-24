@@ -7,7 +7,6 @@ from uber_rides.client import UberRidesClient
 from lyft_rides.auth import ClientCredentialGrant
 from lyft_rides.session import Session
 from lyft_rides.client import LyftRidesClient
-from dotenv import load_dotenv, find_dotenv
 
 
 
@@ -15,8 +14,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    origin = locate(input('\nWhat is your current location? '))
-    destination = locate(input('\nWhere do you want to go? '))
+    origin = locate("Times square, New York")
+    destination = locate("Columbia University, New York")
     uber_eta = get_uber_pickup(origin)
     lyft_eta = get_lyft_pickup(origin)
     uber_cost = get_uber_cost(origin, destination)
