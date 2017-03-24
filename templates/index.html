@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                {% if uber_results %}
+                    <h1> {{ uber_results }}!</h1>
+                    <a href="{{ url_for('index') }}">Lookup another ride </a>
+                {% else %}
+                    <h1> Where are you located?</h1>
+                    <form action="/" class="form-inline">
+                        <div class="form-group">
+                            <input type="text" name="origin" placeholder="Address, City" class="form-control">
+                        </div>
+                        <input type="submit" value="Submit" class="btn-primary">
+                    </form>
+                    <h1> Where are you going?</h1>
+                    <form action="/" class="form-inline">
+                        <div class="form-group">
+                            <input type="text" name="destination" placeholder="Address, City" class="form-control">
+                        </div>
+                        <input type="submit" value="Submit" class="btn-primary">
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
