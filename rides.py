@@ -1,20 +1,3 @@
-# before running, make sure you pip install uber_rides and lyft_rides
-# this is still running apis in sandbox
-
-#for security
-import os
-
-clientid_uber = os.environ['CLIENTID_UBER']
-clientsecret_uber = os.environ['CLIENTSECRET_UBER']
-servertoken_uber = os.environ['SERVERTOKEN_UBER']
-
-clientid_lyft = os.environ['CLIENTID_LYFT']
-clientsecret_lyft = os.environ['CLIENTSECRET_LYFT']
-clienttoken_lyft = os.environ['CLIENTTOKEN_LYFT']
-
-
-#for the locate function
-from geopy.geocoders import Nominatim 
 
 def locate(address):
     geolocator = Nominatim()
@@ -23,13 +6,6 @@ def locate(address):
     lon = location.longitude
     return [lat, lon]
 
-#for Uber
-from uber_rides.session import Session
-from uber_rides.client import UberRidesClient
-
-uber_session = Session(server_token= servertoken_uber)
-
-uber_client = UberRidesClient(uber_session)
 
 def get_uber_pickup(origin):
     start_lat = origin[0]
@@ -54,10 +30,6 @@ def get_uber_cost(origin, destination):
     seat_count= 1) 
     return response.json.get('prices') 
 
-#forLyft
-from lyft_rides.auth import ClientCredentialGrant
-from lyft_rides.session import Session
-from lyft_rides.client import LyftRidesClient
 
 lyft_auth_flow = ClientCredentialGrant(
     clientid_lyft,
