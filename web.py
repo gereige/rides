@@ -52,10 +52,7 @@ def get_uber_cost(origin, destination):
     return response.json.get('prices') 
 
 
-lyft_auth_flow = ClientCredentialGrant(
-    clientid_lyft,
-    clientsecret_lyft,
-    'rides.request public',) #scopes
+lyft_auth_flow = ClientCredentialGrant(clientid_lyft,clientsecret_lyft,'rides.request public')
 
 lyft_session = lyft_auth_flow.get_session()
 
