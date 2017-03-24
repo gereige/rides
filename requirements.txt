@@ -33,13 +33,11 @@ matplotlib==1.5.3
 mistune==0.7.3
 mpmath==0.19
 multipledispatch==0.4.8
-
 oauthlib==2.0.1
 odo==0.5.0
 openpyxl==2.3.2
 pandas==0.18.1
 partd==0.3.6
-path.py==0.0.0
 pathlib2==2.1.0
 patsy==0.4.1
 pep8==1.7.0
